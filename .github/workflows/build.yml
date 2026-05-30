@@ -55,6 +55,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build macOS DMG native dependencies
+        if: runner.os == 'macOS'
+        run: |
+          pnpm exec node-gyp rebuild --directory node_modules/macos-alias
+          pnpm exec node-gyp rebuild --directory node_modules/fs-xattr
+
       - name: Make app
         run: pnpm run make
 
