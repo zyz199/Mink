@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mink</title>
+</head>
+
+<body>
+  <!-- 拖拽区域 (macOS title bar) -->
+  <div id="titlebar">
+    <span id="titlebar-text">未命名</span>
+  </div>
+
+  <!-- 主布局 -->
+  <div id="app">
+    <!-- 侧边栏 -->
+    <aside id="sidebar" class="hidden">
+      <div id="sidebar-tabs">
+        <button class="sidebar-tab active" data-tab="files">文件</button>
+        <button class="sidebar-tab" data-tab="outline">大纲</button>
+      </div>
+      <div id="sidebar-content">
+        <div id="file-tree" class="sidebar-panel active"></div>
+        <div id="outline-panel" class="sidebar-panel"></div>
+      </div>
+    </aside>
+
+    <!-- 编辑器 -->
+    <main id="editor-wrap">
+      <!-- 搜索栏 -->
+      <div id="search-bar" class="hidden">
+        <input id="search-input" type="text" placeholder="查找...">
+        <span id="search-count"></span>
+        <button id="btn-search-prev">◀</button>
+        <button id="btn-search-next">▶</button>
+        <input id="replace-input" type="text" placeholder="替换...">
+        <button id="btn-replace">替换</button>
+        <button id="btn-replace-all">全部</button>
+        <button id="btn-search-close">✕</button>
+      </div>
+      <div id="editor"></div>
+      <div id="editor-cursor" class="hidden"></div>
+      <div id="source-container" class="hidden">
+        <div id="source-line-numbers"></div>
+        <div id="source-editor-wrap">
+          <div id="source-line-highlight" class="hidden"></div>
+          <div id="source-cursor" class="hidden"></div>
+          <textarea id="source-editor" spellcheck="false"></textarea>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- 状态栏 -->
+  <footer id="statusbar">
+    <div id="status-left">
+      <span id="status-words">0 字</span>
+      <span id="status-chars">0 字符</span>
+      <span id="status-lines">1 行</span>
+    </div>
+    <div id="status-right">
+      <button id="btn-sidebar" title="侧边栏">☰</button>
+      <button id="btn-source" title="源代码模式">{ }</button>
+      <button id="btn-theme" title="切换主题">🌙</button>
+    </div>
+  </footer>
+
+  <script type="module" src="./renderer.js"></script>
+</body>
+
+</html>
