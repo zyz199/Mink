@@ -2,35 +2,16 @@ name: Build
 
 on:
   push:
-    branches:
-      - main
     tags:
       - 'v*'
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   make:
-    name: Make (${{ matrix.name }})
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - name: macOS
-            os: macos-latest
-            artifact: mink-macos
-          - name: Linux
-            os: ubuntu-latest
-            artifact: mink-linux
-          - name: Windows
-            os: windows-latest
-            artifact: mink-windows
+    name: Make macOS
+    runs-on: macos-latest
 
     steps:
       - name: Checkout
@@ -48,15 +29,10 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      - name: Install Linux packaging dependencies
-        if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y fakeroot dpkg rpm
-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build macOS DMG native dependencies
-        if: runner.os == 'macOS'
         run: |
           pnpm exec node-gyp rebuild --directory node_modules/macos-alias
           pnpm exec node-gyp rebuild --directory node_modules/fs-xattr
@@ -67,7 +43,7 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.artifact }}
+          name: mink-macos
           path: |
             out/make/**/*
           if-no-files-found: error
