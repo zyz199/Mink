@@ -87,4 +87,5 @@ Output in the `out/` directory:
 
 [MIT](LICENSE)
 
-## PS：因为本地安装使用electron安装包太大了，现在已经废弃
+## PS：Because the electric installation package used for local installation is too large, and if the folder is too large or the file is too large, it will have a stuck effect. It has been Deprecated now
+

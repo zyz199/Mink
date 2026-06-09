@@ -87,4 +87,4 @@ npm run make
 
 [MIT](LICENSE)
 
-## PS：因为本地安装使用electron安装包太大了，现在已经废弃
+## PS：因为本地安装使用electron安装包太大了，并且如果文件夹过大或者文件过大，会有卡顿效果，现在已经废弃
