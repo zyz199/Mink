@@ -1,6 +1,5 @@
-# Mink 🐾
+# Mink （废弃）🐾
 
-🌐 **官网**: [https://website-xi-jet-21.vercel.app](https://website-xi-jet-21.vercel.app) · [English](README.md)
 
 **Mink** — 一款极简 WYSIWYG Markdown 桌面编辑器。
 
@@ -88,9 +87,4 @@ npm run make
 
 [MIT](LICENSE)
 
-## 🔗 链接
-
-- **官网**: [https://website-xi-jet-21.vercel.app](https://website-xi-jet-21.vercel.app)
-- **GitHub**: [https://github.com/irwinai/Mink](https://github.com/irwinai/Mink)
-- **Issues**: [https://github.com/irwinai/Mink/issues](https://github.com/irwinai/Mink/issues)
-- **Releases**: [https://github.com/irwinai/Mink/releases](https://github.com/irwinai/Mink/releases)
+## PS：因为本地安装使用electron安装包太大了，现在已经废弃

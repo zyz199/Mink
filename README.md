@@ -1,4 +1,4 @@
-# Mink 🐾
+# Mink 🐾（Deprecated）
 
 
 **Mink** — A minimalist WYSIWYG Markdown desktop editor.
@@ -87,3 +87,4 @@ Output in the `out/` directory:
 
 [MIT](LICENSE)
 
+## PS：因为本地安装使用electron安装包太大了，现在已经废弃
